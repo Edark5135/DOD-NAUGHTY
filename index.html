@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DO OR DRINK NAUGHTY</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <div class="container">
+        <!-- Home Section -->
+        <div id="homeSection" class="section">
+    <header>
+    <div class="logo-container">
+        <img src="IMAGES/Do_or_Drink_Naughty_Logo.png"class="logo">
+      </div>   
+    </header>
+    <div class="home">
+        <h1>DO OR DRINK NAUGHTY &#128293;</h1>
+        <p>EDARK &#128520;</p>
+         <div id="btn-sci">
+            <button onclick="showAddPlayers()">START</button>
+        </div>
+    </div>
+  </div>
+  <!--Add Player Section-->
+  <div id="addPlayersSection" class="section" style="display: none;">
+    <header>
+      <h1>Add Players</h1>
+    </header>
+    <main>
+      <p>Enter player names (max 10 players):</p>
+      <div id="playerInputs">
+        <input type="text" class="player-name" placeholder="Player 1">
+      </div>
+      <button id="addPlayerBtn">Add Another Player</button>
+      <br><br><button id="startGameBtn">Start Game</button>
+      <br><br><a href="index.html">EXIT TO HOME</a>
+    </main>
+  </div>
+   <!-- Category Section -->
+   <div id="categorySection" class="section" style="display: none;">
+    <header>
+      <h1>DO OR DRINK NAUGHTY &#128293;</h1>
+    </header>
+    <main>
+      <h2 id="currentPlayer"></h2>
+      <br><br><button id="drawCardBtn">Draw a Card</button>
+      <div id="loader">Loading <span class="emoji">&#128520;</span> <span class="emoji">&#128520;</span> <span class="emoji">&#128520;</span></div>
+      <div id="cardContainer">
+          <p id="cardText"></p>
+      </div>
+      <br><button id="exitBtn">Exit to Home</button>
+    </main>
+  </div>
+</div>
+  
+<script src="script.js"></script>
+</body>
+</html>
