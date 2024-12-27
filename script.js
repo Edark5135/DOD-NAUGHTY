@@ -4,7 +4,7 @@ let currentPlayerIndex = 0;
 let socket;
 
 // List of questions
-const correctPassword = 'Edark@5135';
+const correctPassword = '';
 const questions = [
     "Have you ever had a one-night stand?",
     "What's your most embarrassing sexy story?",
