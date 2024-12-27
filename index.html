@@ -20,10 +20,28 @@
         <h1>DO OR DRINK NAUGHTY &#128293;</h1>
         <p>EDARK &#128520;</p>
          <div id="btn-sci">
-            <button onclick="showAddPlayers()">START</button>
+            <button onclick="showRoomOptions()">START</button>
         </div>
     </div>
   </div>
+   <!-- Room Selection Section -->
+   <div id="roomSelectionSection" class="section" style="display: none;">
+    <header>
+        <h1>Room Options</h1>
+    </header>
+    <main>
+        <button onclick="showAddPlayers()">OFFLINE MODE</button>
+        <button onclick="createRoom()">Create a Room</button>
+        <button onclick="joinRoom()">Join a Room</button>
+        <button id="addQuestionBtn">Add Question</button>
+        <div id="addQuestionForm" style="display: none;">
+        <input type="text" id="newQuestionInput" placeholder="Enter new question">
+        <br><input type="password" id="passwordInput" placeholder="Enter password">
+        <button id="submitQuestionBtn">Submit Question</button>
+        </div>
+        <a href="main.html">BACK</a>
+    </main>
+</div>
   <!--Add Player Section-->
   <div id="addPlayersSection" class="section" style="display: none;">
     <header>
@@ -35,10 +53,39 @@
         <input type="text" class="player-name" placeholder="Player 1">
       </div>
       <button id="addPlayerBtn">Add Another Player</button>
-      <br><br><button id="startGameBtn">Start Game</button>
-      <br><br><a href="index.html">EXIT TO HOME</a>
+      <button id="startGameBtn">Start Game</button>
+      <button id="exitOffline()">BACK</button>
     </main>
   </div>
+  <!-- Add Player Section online-->
+  <div id="addPlayersSectiononline" class="section" style="display: none;">
+    <header>
+        <h1>Create Room</h1>
+    </header>
+    <main>
+        <p>Enter your name:</p>
+        <input type="text" id="hostName" placeholder="Your Name">
+        <br><br>
+        <button onclick="startRoom()">Start Room</button>
+        <button id="exitCreate()">Back</button>
+    </main>
+</div>
+
+<!-- Join Room Section -->
+<div id="joinRoomSection" class="section" style="display: none;">
+    <header>
+        <h1>Join a Room</h1>
+    </header>
+    <main>
+        <p>Enter your name:</p>
+        <input type="text" id="playerName" placeholder="Your Name">
+        <p>Enter Room Code:</p>
+        <input type="text" id="roomCode" placeholder="Room Code">
+        <br><br>
+        <button onclick="joinRoomHandler()">Join</button>
+        <button id="exitJoin()">Back</button>
+    </main>
+</div>
    <!-- Category Section -->
    <div id="categorySection" class="section" style="display: none;">
     <header>
@@ -47,15 +94,14 @@
     <main>
       <h2 id="currentPlayer"></h2>
       <br><br><button id="drawCardBtn">Draw a Card</button>
-      <div id="loader">Loading <span class="emoji">&#128520;</span> <span class="emoji">&#128520;</span> <span class="emoji">&#128520;</span></div>
+      <div id="loader"> LOADING <span class="emoji">&#128520;</span> <span class="emoji">&#128520;</span> <span class="emoji">&#128520;</span></div>
       <div id="cardContainer">
           <p id="cardText"></p>
       </div>
-      <br><button id="exitBtn">Exit to Home</button>
+      <br><button id="exitBtn">BACK</button>
     </main>
   </div>
-</div>
-  
+</div>  
 <script src="script.js"></script>
 </body>
 </html>
