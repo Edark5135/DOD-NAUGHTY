@@ -55,6 +55,9 @@ const adminPassword = 'Edark@5135'
 function showRoomOptions() {
     document.getElementById('homeSection').style.display = 'none';
     document.getElementById('roomSelectionSection').style.display = 'block';
+function showRoomOptions() {
+    document.getElementById('homeSection').style.display = 'none';
+    document.getElementById('roomSelectionSection').style.display = 'block';
 }
 // Show Add Players screen
 function showAddPlayers() {
