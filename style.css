@@ -57,13 +57,39 @@ header {
     align-items: center;
     padding: 10rem 9% 2rem;
 }
+#newQuestionInput{
+  background-color: #240400;
+  color: #fff;
+  display: block;
+  margin: 10px auto;
+  padding: 5px;
+  width: 80%;
+}
+#passwordInput{
+  background-color: #240400;
+  color: #fff;
+  display: block;
+  margin: 10px auto;
+  padding: 5px;
+  width: 80%;
+}
+#addPlayersSection{
+    display: none;
+    text-align: center;
+    padding: 20px;
+    background-color: #240400;
+    border-radius: 30px;
+    box-shadow: 0 0 1rem #240400;
+    max-width: 500px;
+    margin: 50px auto;
+}
 #addPlayersSection h1{
-    font-size: clamp(1rem,7vw,3rem);
-
+  font-size: clamp(1rem,7vw,3rem);
+  color: white;
 }
 #addPlayersSection p{
-    text-align: center;
-    font-size: 3rem;
+  font-size: 2rem;
+  color: white;
 }
 #playerInputs input{
     background-color: #240400;
@@ -89,6 +115,34 @@ button{
 button:hover{
     background-color: #550000;
     box-shadow: none;
+}
+#roomSelectionSection {
+  display: none;
+  text-align: center;
+  padding: 20px;
+  background-color: #240400;
+  border-radius: 30px;
+  box-shadow: 0 0 1rem #240400;
+  max-width: 400px;
+  margin: 50px auto;
+}
+#roomSelectionSection a {
+  display: inline-block;
+    padding: 1rem 10rem;
+    background-color: #240400;
+    border: .2rem solid #240400;
+    border-radius: 4rem;
+    box-shadow: 0 0 1rem #240400;
+    font-size: 16px;
+    color: white;
+    font-weight: 500;
+    transition: .5s;
+    cursor: pointer;
+}
+
+#roomSelectionSection a:hover {
+  background-color: #550000;
+  box-shadow: none;
 }
 #drawCardBtn {
     margin-left: 70px;
@@ -188,7 +242,7 @@ button:hover{
   a{
     margin-left: 70px;
     display: inline-block;
-    padding: 1rem 9rem;
+    padding: 1rem 10rem;
     background-color: #240400;
     border: .2rem solid #240400;
     border-radius: 4rem;
@@ -203,4 +257,64 @@ button:hover{
   a:hover {
     background-color: #550000;
     box-shadow: none;
+  }
+  #addPlayersSectiononline{
+    display: none;
+    text-align: center;
+    padding: 20px;
+    background-color: #240400;
+    border-radius: 30px;
+    box-shadow: 0 0 1rem #240400;
+    max-width: 400px;
+    margin: 50px auto;
+  }
+  #hostName{
+    background-color: #240400;
+    color: #fff;
+    display: block;
+    margin: 10px auto;
+    padding: 5px;
+    width: 80%;
+  } 
+  #joinRoomSection{
+    display: none;
+    text-align: center;
+    padding: 20px;
+    background-color: #240400;
+    border-radius: 30px;
+    box-shadow: 0 0 1rem #240400;
+    max-width: 400px;
+    margin: 50px auto;
+  }
+  #addPlayersSectiononline h1{
+    font-size: clamp(1rem,7vw,3rem);
+    color: white;
+  }
+  #addPlayersSectiononline p{
+    font-size: 2rem;
+    color: white;
+  }
+  #playerName{
+    background-color: #240400;
+    color: #fff;
+    display: block;
+    margin: 10px auto;
+    padding: 5px;
+    width: 80%;
+  }
+  #roomCode{
+    background-color: #240400;
+    color: #fff;
+    display: block;
+    margin: 10px auto;
+    padding: 5px;
+    width: 80%;
+  }
+  #joinRoomSection h1{
+    font-size: clamp(1rem,7vw,3rem);
+    color: white;
+  }
+  #joinRoomSection p{
+    font-size: 2rem;
+    color: white;
   }
