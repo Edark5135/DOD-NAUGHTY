@@ -80,7 +80,7 @@ header {
     background-color: #240400;
     border-radius: 30px;
     box-shadow: 0 0 1rem #240400;
-    max-width: 500px;
+    max-width: 400px;
     margin: 50px auto;
 }
 #addPlayersSection h1{
@@ -242,7 +242,7 @@ button:hover{
   a{
     margin-left: 10px;
     display: inline-block;
-    padding: 1rem 10rem;
+    padding: 3rem 10rem;
     background-color: #240400;
     border: .2rem solid #240400;
     border-radius: 4rem;
@@ -252,6 +252,7 @@ button:hover{
     font-weight: 500;
     transition: .5s;
     cursor: pointer;
+    max-width: 400px;
   }
   #addPlayersSection button:hover,
   a:hover {
