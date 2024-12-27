@@ -1,8 +1,10 @@
 // Player management
 let players = [];
 let currentPlayerIndex = 0;
+let socket;
 
 // List of questions
+const correctPassword = 'Edark@5135';
 const questions = [
     "Have you ever had a one-night stand?",
     "What's your most embarrassing sexy story?",
@@ -49,10 +51,15 @@ const questions = [
     "What’s the most awkward thing that's ever happened to you?",
     "If you were stranded on a deserted island, what 3 things would you want with you?"
 ];
-
+const adminPassword = 'Edark@5135'
+function showRoomOptions() {
+    document.getElementById('homeSection').style.display = 'none';
+    document.getElementById('roomSelectionSection').style.display = 'block';
+}
 // Show Add Players screen
 function showAddPlayers() {
     document.getElementById('homeSection').style.display = 'none';
+    document.getElementById('roomSelectionSection').style.display = 'none';
     document.getElementById('addPlayersSection').style.display = 'block';
 }
 
@@ -68,6 +75,29 @@ document.getElementById('addPlayerBtn').addEventListener('click', () => {
         playerInputs.appendChild(newInput);
     } else {
         alert('Maximum of 10 players allowed!');
+    }
+});
+document.getElementById('addQuestionBtn').addEventListener('click', () => {
+    const form = document.getElementById('addQuestionForm');
+    form.style.display = form.style.display === 'none' ? 'block' : 'none';
+});
+document.getElementById('submitQuestionBtn').addEventListener('click', () => {
+    const password = document.getElementById('passwordInput').value;
+    const newQuestion = document.getElementById('newQuestionInput').value.trim();
+
+    if (password === correctPassword) {
+        if (newQuestion) {
+            questions.push(newQuestion);
+            alert('New question added successfully!');
+            // Optionally, clear the input fields and hide the form
+            document.getElementById('passwordInput').value = '';
+            document.getElementById('newQuestionInput').value = '';
+            document.getElementById('addQuestionForm').style.display = 'none';
+        } else {
+            alert('Please enter a question.');
+        }
+    } else {
+        alert('Incorrect password.');
     }
 });
 
@@ -124,5 +154,77 @@ document.getElementById('exitBtn').addEventListener('click', () => {
     players = [];
     currentPlayerIndex = 0;
     document.getElementById('categorySection').style.display = 'none';
-    document.getElementById('homeSection').style.display = 'block';
+    document.getElementById('addPlayersSection').style.display = 'block';
+});
+document.getElementById('exitOffline()').addEventListener('click', () => {
+    players = [];
+    currentPlayerIndex = 0;
+    document.getElementById('addPlayersSection').style.display = 'none';
+    document.getElementById('roomSelectionSection').style.display = 'block';
+});
+function createRoom() {
+    document.getElementById('roomSelectionSection').style.display = 'none';
+    document.getElementById('addPlayersSectiononline').style.display = 'block';
+}
+function startRoom() {
+    const hostName = document.getElementById('hostName').value;
+    if (!hostName) {
+        alert("Please enter your name.");
+        return;
+    }
+
+    // Initialize WebSocket and create a room
+    socket = new WebSocket('ws://your-backend-server-url');
+    socket.onopen = () => {
+        socket.send(JSON.stringify({ action: 'createRoom', name: hostName }));
+    };
+
+    socket.onmessage = (message) => {
+        const data = JSON.parse(message.data);
+        if (data.action === 'roomCreated') {
+            alert(`Room created! Room code: ${data.roomCode}`);
+            document.getElementById('addPlayersSection').style.display = 'none';
+            document.getElementById('gameSection').style.display = 'block';
+        }
+    };
+}
+function joinRoom() {
+    document.getElementById('roomSelectionSection').style.display = 'none';
+    document.getElementById('joinRoomSection').style.display = 'block';
+}
+
+function joinRoomHandler() {
+    const playerName = document.getElementById('playerName').value;
+    const roomCode = document.getElementById('roomCode').value;
+
+    if (!playerName || !roomCode) {
+        alert("Please enter both your name and the room code.");
+        return;
+    }
+
+    socket = new WebSocket('ws://your-backend-server-url');
+    socket.onopen = () => {
+        socket.send(JSON.stringify({ action: 'joinRoom', name: playerName, roomCode }));
+    };
+
+    socket.onmessage = (message) => {
+        const data = JSON.parse(message.data);
+        if (data.action === 'roomJoined') {
+            alert(`Joined room ${data.roomCode}`);
+            document.getElementById('joinRoomSection').style.display = 'none';
+            document.getElementById('gameSection').style.display = 'block';
+        }
+    };
+}
+document.getElementById('exitCreate()').addEventListener('click', () => {
+    players = [];
+    currentPlayerIndex = 0;
+    document.getElementById('addPlayersSectiononline').style.display = 'none';
+    document.getElementById('roomSelectionSection').style.display = 'block';
+});
+document.getElementById('exitJoin()').addEventListener('click', () => {
+    players = [];
+    currentPlayerIndex = 0;
+    document.getElementById('joinRoomSection').style.display = 'none';
+    document.getElementById('roomSelectionSection').style.display = 'block';
 });
